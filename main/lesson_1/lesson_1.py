@@ -69,4 +69,5 @@ with open('test_file.txt', "rb") as f_n:
     data = data.decode(enc['encoding']).encode('utf-8').decode('utf-8 ')
     print(data)
 
+# lesson_1
 
