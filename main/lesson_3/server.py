@@ -10,10 +10,13 @@ from errors import IncorrectDataRecivedError
 from common.variables import ACTION, ACCOUNT_NAME, RESPONSE, MAX_CONNECTIONS, \
     PRESENCE, TIME, USER, ERROR, DEFAULT_PORT, RESPONDEFAULT_IP_ADDRESSSE
 from common.utils import get_message, send_message
+from decorators import log
 
+# Инициализация логирования сервера.
 SERVER_LOGGER = logging.getLogger('server')
 
 
+@log
 def client_response_handler(message):
     """
     Обработчик сообщений от клиентов, принимает словарь -
@@ -33,11 +36,9 @@ def client_response_handler(message):
     }
 
 
+@log
 def create_arg_parser():
-    """
-    Парсер аргументов коммандной строки
-    :return:
-    """
+    """Парсер аргументов коммандной строки"""
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', default=DEFAULT_PORT, type=int, nargs='?')
     parser.add_argument('-a', default='', nargs='?')
