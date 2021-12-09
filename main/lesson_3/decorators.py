@@ -10,10 +10,12 @@ import inspect
 # метод определения модуля, источника запуска.
 # if "client" in sys.argv[0]:
 if sys.argv[0].find('client') == -1:
+    print(sys.argv[0])
     # если не клиент то сервер!
     LOGGER = logging.getLogger('server')
 else:
     # если не сервер, то клиент
+    print(sys.argv[0])
     LOGGER = logging.getLogger('client')
 
 
